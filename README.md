@@ -55,7 +55,7 @@ In the future I will share separate PCB gerber files com each component or desig
 
 | Reference Designator | Qty | LCSC Part Number | Component Package | Description | Manufacturer / Part Number |
 | :--- | :---: | :--- | :---: | :--- | :--- |
-| **J1, J2** | 2 | **C496550** | Edge-Launch / End-Launch | RF SMA Female Antenna Connector ($50\ \Omega$, DC–12.4 GHz) | [cite_start]Bat Wireless / `BWSMA-KE-P001`  |
+| **J1, J2** | 2 | **C496550** | Edge-Launch / End-Launch | RF SMA Female Antenna Connector ($50\ \Omega$, DC–12.4 GHz) | Bat Wireless / `BWSMA-KE-P001`  |
 | **U1 (433 MHz Option)** | 1 | **C5624220** | SMD (LTCC) | 433 MHz Dielectric Bandpass Filter | Taoglas / `DBP.433.T.A.30` |
 | **U2 (868 MHz Option)** | 1 | **C6831308** | SMD (LTCC) | 868 MHz Dielectric Bandpass Filter | Taoglas / `DBP.868.U.A.30` |
 
