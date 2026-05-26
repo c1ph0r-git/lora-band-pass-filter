@@ -30,16 +30,14 @@ This board mitigates out-of-band noise, suppresses harmonics, and prevents desen
 The PCB implements standard 50ohm coplanar waveguide with ground (CPWG) transmission lines. 
 
 ```text
-[ ANTENNA IN ]                                                [ TRANSCEIVER OUT ]
-  +----------+       +---------------------------------+         +----------+
-  |  J1 SMA  | ===== |                LF1              | ======= |  J2 SMA  |
-  |  Female  |       |  Integrated Band Pass Filter    |         |  Female  |
-  +----------+       +---------------------------------+         +----------+
-                           |                      |
-                         [GND]                  [GND]
+[ ANTENNA IN ]                                              [ TRANSCEIVER OUT ]
+  +----------+       +-------------------------------+         +----------+
+  |  J1 SMA  | ===== |                LF1            | ======= |  J2 SMA  |
+  |  Female  |       |  Integrated Band Pass Filter  |         |  Female  |
+  +----------+       +-------------------------------+         +----------+
+                           |                    |
+                         [GND]                [GND]
 ```
-
-![schematic](Schematic_Band-Pass-Filter_2026-05-26.svg)
 
 The filter configuration can be populated utilizing high-performance components in two ways:
 1. **433 MHz Filter Path:** LCSC Part `C5624220` (Taoglas DBP.433.T.A.30).
@@ -55,7 +53,7 @@ In the future I will share separate PCB gerber files com each component or desig
 
 ## Bill of Materials (BOM)
 
-B| Reference Designator | Qty | LCSC Part Number | Component Package | Description | Manufacturer / Part Number |
+| Reference Designator | Qty | LCSC Part Number | Component Package | Description | Manufacturer / Part Number |
 | :--- | :---: | :--- | :---: | :--- | :--- |
 | **J1, J2** | 2 | **C496550** | Edge-Launch / End-Launch | RF SMA Female Antenna Connector ($50\ \Omega$, DC–12.4 GHz) | [cite_start]Bat Wireless / `BWSMA-KE-P001`  |
 | **U1 (433 MHz Option)** | 1 | **C5624220** | SMD (LTCC) | 433 MHz Dielectric Bandpass Filter | Taoglas / `DBP.433.T.A.30` |
