@@ -3,7 +3,7 @@
 [![License: CERN-v2](https://img.shields.io/badge/License-CERN-yellow.svg)](https://opensource.org/licenses/CERN)
 [![Hardware: KiCad](https://img.shields.io/badge/Hardware-KiCad_v8.0-blue.svg)](https://kicad.org/)
 
-[3d](~/3d.png)
+![3d](~/3d.png)
 
 ## About
 
