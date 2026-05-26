@@ -27,36 +27,41 @@ This board mitigates out-of-band noise, suppresses harmonics, and prevents desen
 
 ![gerber](gerber.png)
 
-The PCB implements standard 50ohm coplanar waveguide with ground (CPWG) transmission lines. The filter configuration can be populated in two ways:
-1. **Integrated LTCC Filter Path:** Utilizing high-performance components like the LCSC Part `C5624220` (or similar footprint variations).
+The PCB implements standard 50ohm coplanar waveguide with ground (CPWG) transmission lines. 
 
 ```text
-[ ANTENNA IN ]                                                             [ TRANSCEIVER OUT ]
-  +----------+       +---------------------------------------------+         +----------+
-  |  J1 SMA  | ===== |                U1 / U2 / U3                 | ======= |  J2 SMA  |
-  |  Female  |       |  Integrated Band Pass Filter (LTCC / SAW)   |         |  Female  |
-  +----------+       +---------------------------------------------+         +----------+
-                           |                       |
-                         [GND]                   [GND]
+[ ANTENNA IN ]                                                [ TRANSCEIVER OUT ]
+  +----------+       +---------------------------------+         +----------+
+  |  J1 SMA  | ===== |                LF1              | ======= |  J2 SMA  |
+  |  Female  |       |  Integrated Band Pass Filter    |         |  Female  |
+  +----------+       +---------------------------------+         +----------+
+                           |                      |
+                         [GND]                  [GND]
 ```
 
 ![schematic](Schematic_Band-Pass-Filter_2026-05-26.svg)
+
+The filter configuration can be populated utilizing high-performance components in two ways:
+1. **433 MHz Filter Path:** LCSC Part `C5624220` (Taoglas DBP.433.T.A.30).
+2. **868 MHz Filter Path:** LCSC Part `C6831308` (Taoglas DBP.868.U.A.30).
+
+Female headers (50ohm):
+- $50\ \Omega$ RF SMA Female End-Launch (Edge-Mount) PCB Connector: LCSC part number `C496550`
+
+The PCB is tunned for the 433 MHz footprint but the 868 MHz is only slightly different (larger in length and slightly wider) and may be compatible.
+In the future I will share separate PCB gerber files com each component or design a universal pad layout.
 
 ---
 
 ## Bill of Materials (BOM)
 
-Below is the component list required to build one unit. The PCB accommodates both frequencies, but you must select the respective components for your desired target band (433 MHz or 868 MHz).
-
-| Reference Designator | Qty | Value / Part Number | Package | Description | Manufacturer / LCSC Link |
+B| Reference Designator | Qty | LCSC Part Number | Component Package | Description | Manufacturer / Part Number |
 | :--- | :---: | :--- | :---: | :--- | :--- |
-| **U1** | 1 | C5624220 / Filter | SMD-4 / SMD-6 | SMD Multi-layer LTCC Band Pass Filter | [LCSC Datasheet](https://www.lcsc.com/datasheet/C5624220.pdf?spm=wm.fly.bg.0.pdf&lcsc_vid=RABcVlJeTlUIUFRWQlFbUVwFE1EPX1QEQFdcUVIEQ1ExVlNRTlZaUFVXQVhWVjsOAxUeFF5JWBYZEEoKFBINSQcJGk4dAgUUFAk%3D) |
-| **J1, J2** | 2 | SMA-KE | Edge-Launch | SMA Female Edge Mount Connector, $50\ \Omega$ | Generic / LCSC |
-| **C1, C3\*** | 2 | *See Note* | 0402 / 0603 | RF Capacitor, Low-ESR, COG/NP0 (Optional LC path) | Murata / Samsung |
-| **L1\*** | 1 | *See Note* | 0402 / 0603 | RF Wire-wound Inductor, High-Q (Optional LC path) | Murata / Sunlord |
-| **PCB** | 1 | LoRa BPF PCB | - | FR4, 1.6mm thickness, 2-layer or 4-layer | Custom |
+| **J1, J2** | 2 | **C496550** | Edge-Launch / End-Launch | RF SMA Female Antenna Connector ($50\ \Omega$, DC–12.4 GHz) | [cite_start]Bat Wireless / `BWSMA-KE-P001`  |
+| **U1 (433 MHz Option)** | 1 | **C5624220** | SMD (LTCC) | 433 MHz Dielectric Bandpass Filter | Taoglas / `DBP.433.T.A.30` |
+| **U2 (868 MHz Option)** | 1 | **C6831308** | SMD (LTCC) | 868 MHz Dielectric Bandpass Filter | Taoglas / `DBP.868.U.A.30` |
 
-*\*Note: C1, C3, and L1 discrete footprints are provided on-board as placeholders for fine-tuning or for substituting the integrated filter with a lumped-element network if desired. If using the `C5624220` integrated IC filter, bypass these footprints with $0\ \Omega$ resistors or solder bridges as defined by the schematic routing.*
+*\*Note: This PCB design utilizes a configurable layout strategy. Solder **only** U1 if you need a 433 MHz filter, or **only** U2 if you need an 868 MHz filter. Do not populate both positions simultaneously on a single shared RF trace line unless your schematic includes an active SPDT RF switch routing matrix.*
 
 ---
 
