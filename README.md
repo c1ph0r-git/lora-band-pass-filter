@@ -3,6 +3,10 @@
 [![License: CERN-v2](https://img.shields.io/badge/License-CERN-yellow.svg)](https://opensource.org/licenses/CERN)
 [![Hardware: KiCad](https://img.shields.io/badge/Hardware-KiCad_v8.0-blue.svg)](https://kicad.org/)
 
+[3d](~/3d.png)
+
+## About
+
 An open-source, high-performance RF Band Pass Filter (BPF) PCB designed specifically for LoRa and IoT applications operating in the **433 MHz** and **868 MHz** ISM bands. 
 
 This board mitigates out-of-band noise, suppresses harmonics, and prevents desensitization of the LoRa receiver caused by nearby strong signals (such as cellular networks or high-power broadcast transmitters). It is ideal for deployment in LoRaWAN Gateways, specialized node setups, and SDR operations.
