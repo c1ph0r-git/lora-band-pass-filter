@@ -25,11 +25,22 @@ This board mitigates out-of-band noise, suppresses harmonics, and prevents desen
 
 ## Schematic & Topology
 
+![gerber](gerber.png)
+
 The PCB implements standard 50ohm coplanar waveguide with ground (CPWG) transmission lines. The filter configuration can be populated in two ways:
 1. **Integrated LTCC Filter Path:** Utilizing high-performance components like the LCSC Part `C5624220` (or similar footprint variations).
 
+```text
+[ ANTENNA IN ]                                                             [ TRANSCEIVER OUT ]
+  +----------+       +---------------------------------------------+         +----------+
+  |  J1 SMA  | ===== |                U1 / U2 / U3                 | ======= |  J2 SMA  |
+  |  Female  |       |  Integrated Band Pass Filter (LTCC / SAW)   |         |  Female  |
+  +----------+       +---------------------------------------------+         +----------+
+                           |                       |
+                         [GND]                   [GND]
+```
+
 ![schematic](Schematic_Band-Pass-Filter_2026-05-26.svg)
-![gerber](gerber.png)
 
 ---
 
@@ -51,6 +62,9 @@ Below is the component list required to build one unit. The PCB accommodates bot
 
 ## PCB Fabrication Guidelines
 
+![top](top.svg)
+![bottom](bottom.svg)
+
 To ensure the RF traces maintain a strict $50\ \Omega$ characteristic impedance, follow these stackup guidelines during manufacturing:
 
 - **Material:** FR-4 (Tg 130-140 or higher)
@@ -58,9 +72,6 @@ To ensure the RF traces maintain a strict $50\ \Omega$ characteristic impedance,
 - **PCB Thickness:** 1.6mm (CPWG trace width calculated for board thickness: 1.2mm track width and 0.15mm track spacing)
 - **Surface Finish:** ENIG (Electroless Nickel Immersion Gold) is highly recommended for RF performance and solderability.
 - **Copper Weight:** 1 oz (35 µm) outer layers
-
-![top](top.svg)
-![bottom](bottom.svg)
 
 ---
 
