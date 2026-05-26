@@ -1,9 +1,9 @@
+![3d](3d.png)
+
 # LoRa Dual-Band Pass Filter PCB (433 MHz & 868 MHz)
 
 [![License: CERN-v2](https://img.shields.io/badge/License-CERN-yellow.svg)](https://opensource.org/licenses/CERN)
 [![Hardware: KiCad](https://img.shields.io/badge/Hardware-KiCad_v8.0-blue.svg)](https://kicad.org/)
-
-![3d](3d.png)
 
 ## About
 
@@ -27,7 +27,9 @@ This board mitigates out-of-band noise, suppresses harmonics, and prevents desen
 
 The PCB implements standard 50ohm coplanar waveguide with ground (CPWG) transmission lines. The filter configuration can be populated in two ways:
 1. **Integrated LTCC Filter Path:** Utilizing high-performance components like the LCSC Part `C5624220` (or similar footprint variations).
-2. **Lumped LC Network Path:** For manual tuning and customization utilizing high-Q inductors and low-ESR capacitors.
+
+![schematic](Schematic_Band-Pass-Filter_2026-05-26.svg)
+![gerber](gerber.png)
 
 ---
 
@@ -56,6 +58,9 @@ To ensure the RF traces maintain a strict $50\ \Omega$ characteristic impedance,
 - **PCB Thickness:** 1.6mm (CPWG trace width calculated for board thickness: 1.2mm track width and 0.15mm track spacing)
 - **Surface Finish:** ENIG (Electroless Nickel Immersion Gold) is highly recommended for RF performance and solderability.
 - **Copper Weight:** 1 oz (35 µm) outer layers
+
+![top](top.svg)
+![bottom](bottom.svg)
 
 ---
 
