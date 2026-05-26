@@ -30,10 +30,10 @@ This board mitigates out-of-band noise, suppresses harmonics, and prevents desen
 The PCB implements standard 50ohm coplanar waveguide with ground (CPWG) transmission lines. 
 
 ```text
-[ ANTENNA IN ]                                              [ TRANSCEIVER OUT ]
+[ ANTENNA IN ]                                             [ TRANSCEIVER OUT ]
   +----------+       +-------------------------------+         +----------+
   |  J1 SMA  | ===== |                LF1            | ======= |  J2 SMA  |
-  |  Female  |       |  Integrated Band Pass Filter  |         |  Female  |
+  |  Female  |       |  Integrated Band Pass Filter  |         |   Male   |
   +----------+       +-------------------------------+         +----------+
                            |                    |
                          [GND]                [GND]
@@ -55,7 +55,7 @@ In the future I will share separate PCB gerber files com each component or desig
 
 | Reference Designator | Qty | LCSC Part Number | Component Package | Description | Manufacturer / Part Number |
 | :--- | :---: | :--- | :---: | :--- | :--- |
-| **J1, J2** | 2 | **C496550** | Edge-Launch / End-Launch | RF SMA Female Antenna Connector ($50\ \Omega$, DC–12.4 GHz) | Bat Wireless / `BWSMA-KE-P001`  |
+| **J1, J2** | 2 | **C496550** | Edge-Launch / End-Launch | RF SMA Female and Male Antenna Connector ($50\ \Omega$, DC–12.4 GHz) | Bat Wireless / `BWSMA-KE-P001`  |
 | **U1 (433 MHz Option)** | 1 | **C5624220** | SMD (LTCC) | 433 MHz Dielectric Bandpass Filter | Taoglas / `DBP.433.T.A.30` |
 | **U2 (868 MHz Option)** | 1 | **C6831308** | SMD (LTCC) | 868 MHz Dielectric Bandpass Filter | Taoglas / `DBP.868.U.A.30` |
 
